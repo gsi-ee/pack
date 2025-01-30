@@ -1,3 +1,6 @@
 [submodule "go4"]
 	path = go4
 	url = git@github.com:gsi-ee/go4.git
+[submodule "dabc"]
+	path = dabc
+	url = git@github.com:gsi-ee/dabc.git
