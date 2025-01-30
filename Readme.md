@@ -25,6 +25,13 @@ If there is ROOT build exists, one can reuse it calling:
 
     . ~/build/pack/trb3login
 
+## Update and rebuild
+
+    cd ~/git/pack
+    git pull
+    cd ~/build/pack
+    make -j
+
 ## Use DABC and Go4 analysis
 
 * https://web-docs.gsi.de/~dabc/doc/dabc2/hadaq_trb3_package.html
