@@ -4,10 +4,30 @@ project(Pack)
 
 include(ExternalProject)
 
+find_package(ROOT QUIET)
+if(ROOT_FOUND)
+  message("Using existing ROOT")
+  set(root_dep "")
+  set(root_cmake $ENV{CMAKE_PREFIX_PATH})
+else()
+  message("Download and build ROOT from external")
+  ExternalProject_Add(
+     ROOT
+     URL https://root.cern/download/root_v6.34.02.source.tar.gz
+     URL_HASH SHA256=166bec562e420e177aaf3133fa3fb09f82ecddabe8a2e1906345bad442513f94
+     BINARY_DIR root
+     CMAKE_ARGS "-Dwebgui=ON -Dqt6web=ON -Dxrootd=OFF -Ddavix=OFF -Dbuiltin_vdt=OFF -Dvdt=OFF"
+     INSTALL_COMMAND ""
+  )
+  set(root_dep ROOT)
+  set(root_cmake ${CMAKE_BINARY_DIR}/root)
+endif()
+
 ExternalProject_Add(
    DABC
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/dabc
    BINARY_DIR dabc
+   DEPENDS ${root_dep}
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/dabc/dabclogin ${CMAKE_BINARY_DIR}
 )
 
@@ -15,8 +35,8 @@ ExternalProject_Add(
    GO4
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/go4
    BINARY_DIR go4
-   DEPENDS DABC
-   CMAKE_ARGS "-DDABCSYS=${CMAKE_BINARY_DIR}/dabc -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/dabc:$ENV{CMAKE_PREFIX_PATH}"
+   DEPENDS DABC ${root_dep}
+   CMAKE_ARGS "-DDABCSYS=${CMAKE_BINARY_DIR}/dabc -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/dabc:${root_cmake}"
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/go4/go4login ${CMAKE_BINARY_DIR}
 )
 
@@ -24,7 +44,10 @@ ExternalProject_Add(
    STREAM
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/stream
    BINARY_DIR stream
-   DEPENDS DABC GO4
-   CMAKE_ARGS "-DGO4SYS=${CMAKE_BINARY_DIR}/go4 -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/go4:$ENV{CMAKE_PREFIX_PATH}"
+   DEPENDS DABC GO4 ${root_dep}
+   CMAKE_ARGS "-DGO4SYS=${CMAKE_BINARY_DIR}/go4 -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/go4:${root_cmake}"
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/stream/streamlogin ${CMAKE_BINARY_DIR}
 )
+
+configure_file(${CMAKE_SOURCE_DIR}/trb3login.in
+              ${CMAKE_BINARY_DIR}/trb3login @ONLY NEWLINE_STYLE UNIX)
