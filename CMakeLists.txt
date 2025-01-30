@@ -36,7 +36,7 @@ ExternalProject_Add(
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/go4
    BINARY_DIR go4
    DEPENDS DABC ${root_dep}
-   CMAKE_ARGS -Dexamples=OFF -DDABCSYS=${CMAKE_BINARY_DIR}/dabc -DCMAKE_PREFIX_PATH=${root_cmake}$<SEMICOLON>${CMAKE_BINARY_DIR}/dabc
+   CMAKE_ARGS -Dexamples=OFF -DCMAKE_PREFIX_PATH=${root_cmake}$<SEMICOLON>${CMAKE_BINARY_DIR}/dabc
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/go4/go4login ${CMAKE_BINARY_DIR}
 )
 
@@ -45,7 +45,7 @@ ExternalProject_Add(
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/stream
    BINARY_DIR stream
    DEPENDS DABC GO4 ${root_dep}
-   CMAKE_ARGS -DGO4SYS=${CMAKE_BINARY_DIR}/go4 -DCMAKE_PREFIX_PATH=${root_cmake}$<SEMICOLON>${CMAKE_BINARY_DIR}/go4
+   CMAKE_ARGS -DCMAKE_PREFIX_PATH=${root_cmake}$<SEMICOLON>${CMAKE_BINARY_DIR}/go4
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/stream/streamlogin ${CMAKE_BINARY_DIR}
 )
 
