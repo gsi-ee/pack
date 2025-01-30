@@ -4,10 +4,27 @@ project(Pack)
 
 include(ExternalProject)
 
+ExternalProject_Add(
+   DABC
+   SOURCE_DIR ${CMAKE_SOURCE_DIR}/dabc
+   BINARY_DIR dabc
+   INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/dabc/dabclogin ${CMAKE_BINARY_DIR}
+)
+
+ExternalProject_Add(
+   GO4
+   SOURCE_DIR ${CMAKE_SOURCE_DIR}/go4
+   BINARY_DIR go4
+   DEPENDS DABC
+   CMAKE_ARGS "-DDABCSYS=${CMAKE_BINARY_DIR}/dabc -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/dabc:$ENV{CMAKE_PREFIX_PATH}"
+   INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/go4/go4login ${CMAKE_BINARY_DIR}
+)
 
 ExternalProject_Add(
    STREAM
    SOURCE_DIR ${CMAKE_SOURCE_DIR}/stream
    BINARY_DIR stream
+   DEPENDS DABC GO4
+   CMAKE_ARGS "-DGO4SYS=${CMAKE_BINARY_DIR}/go4 -DCMAKE_PREFIX_PATH=${CMAKE_BINARY_DIR}/go4:$ENV{CMAKE_PREFIX_PATH}"
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/stream/streamlogin ${CMAKE_BINARY_DIR}
 )
