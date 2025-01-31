@@ -23,12 +23,13 @@ If there is ROOT build exists, one can reuse it calling:
 
 ## Use generated login script
 
-    . ~/build/pack/trb3login
+    . ~/build/pack/dabcgo4login
 
 ## Update and rebuild
 
     cd ~/git/pack
     git pull
+    git submodule update --recursive --remote
     cd ~/build/pack
     make -j
 

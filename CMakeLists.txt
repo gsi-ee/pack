@@ -51,5 +51,5 @@ ExternalProject_Add(
    INSTALL_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_BINARY_DIR}/dabc/dabclogin ${CMAKE_BINARY_DIR}
 )
 
-configure_file(${CMAKE_SOURCE_DIR}/trb3login.in
-              ${CMAKE_BINARY_DIR}/trb3login @ONLY NEWLINE_STYLE UNIX)
+configure_file(${CMAKE_SOURCE_DIR}/scripts/dabcgo4login.in
+              ${CMAKE_BINARY_DIR}/dabcgo4login @ONLY NEWLINE_STYLE UNIX)
