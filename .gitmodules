@@ -4,3 +4,6 @@
 [submodule "stream"]
 	path = stream
 	url = git@github.com:gsi-ee/stream.git
+[submodule "go4"]
+	path = go4
+	url = https://github.com/gsi-ee/go4.git
