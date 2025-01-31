@@ -3,7 +3,7 @@
 ## Checkout repository
 
     cd ~/git
-    git clone https://github.com/gsi-ee/pack.git
+    git clone --recurse-submodules https://github.com/gsi-ee/pack.git
 
 ## Create build directory
 
