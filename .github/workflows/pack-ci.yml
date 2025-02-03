@@ -25,7 +25,9 @@ jobs:
           apt-get install -y qt6-base-dev
 
       - name: Checkout pack repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+           submodules: 'true'
 
       - name: Configure
         shell: bash
