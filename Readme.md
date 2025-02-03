@@ -15,6 +15,14 @@ If there is ROOT build exists, one can reuse it calling:
 
     source path/to/bin/thisroot.sh
 
+## Install some prerequicities
+
+Check if one need some packages to be installed. For ROOT there is https://root.cern/install/dependencies/ list of packages which may be required.
+For the Go4 one needs Qt6 with webengine components. On the opensuse on can install it with:
+
+    sudo zypper install qt6-webenginecore-devel qt6-webenginewidgets-devel qt6-base-common-devel qt6-gui-devel
+
+
 ## Configure and build
 
     cd ~/build/pack
