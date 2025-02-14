@@ -41,8 +41,11 @@ For the Go4 one needs Qt6 with webengine components. On the opensuse on can inst
     cd ~/build/pack
     make -j
 
-## Use DABC and Go4 analysis
+## Useful links
 
+* https://root.cern
+* https://go4.gsi.de
+* https://dabc.gsi.de
 * https://web-docs.gsi.de/~dabc/doc/dabc2/hadaq_trb3_package.html
 * https://web-docs.gsi.de/~dabc/doc/stream/hadaq_tdc_calibr.html
 
