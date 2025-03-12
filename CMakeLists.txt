@@ -17,7 +17,7 @@ else()
      URL_HASH SHA256=166bec562e420e177aaf3133fa3fb09f82ecddabe8a2e1906345bad442513f94
      DOWNLOAD_EXTRACT_TIMESTAMP false
      BINARY_DIR root
-     CMAKE_ARGS -Dwebgui=ON -Dqt6web=ON -Dxrootd=OFF -Dbuiltin_xrootd=OFF -Ddavix=OFF -Dbuiltin_vdt=OFF -Dvdt=OFF
+     CMAKE_ARGS -Dwebgui=ON -Dqt6web=ON -Dxrootd=OFF -Dbuiltin_xrootd=OFF -Ddavix=OFF -Dbuiltin_vdt=OFF -Dvdt=OFF -Dbuiltin_glew=ON
      INSTALL_COMMAND ""
   )
   set(root_dep ROOT)
