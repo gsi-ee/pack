@@ -9,6 +9,7 @@ if(ROOT_FOUND)
   message("Using existing ROOT")
   set(root_dep "")
   set(root_cmake $ENV{CMAKE_PREFIX_PATH})
+  set(__root_init__ "")
 else()
   message("Download and build ROOT from https://root.cern/download/root_v6.34.02.source.tar.gz")
   ExternalProject_Add(
@@ -23,6 +24,7 @@ else()
   )
   set(root_dep ROOT)
   set(root_cmake ${CMAKE_BINARY_DIR}/root)
+  set(__root_init__ "if [[ -z $ROOTSYS ]]; then . ${CMAKE_BINARY_DIR}/root/bin/thisroot.sh; fi")
 endif()
 
 ExternalProject_Add(

@@ -1,5 +1,6 @@
 echo "Configure shell variables for running TRB3 software"
 
+@__root_init__@
 if [[ -z $DABCSYS ]]; then . @CMAKE_BINARY_DIR@/dabc/dabclogin; fi
 if [[ -z $GO4SYS ]]; then . @CMAKE_BINARY_DIR@/go4/go4login; fi
 if [[ -z $STREAMSYS ]]; then . @CMAKE_BINARY_DIR@/stream/streamlogin; fi
