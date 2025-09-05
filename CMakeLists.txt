@@ -19,7 +19,7 @@ else()
      DOWNLOAD_EXTRACT_TIMESTAMP false
      BINARY_DIR root
      BUILD_ALWAYS 1
-     CMAKE_ARGS -Dwebgui=ON -Dqt6web=ON -Dxrootd=OFF -Dbuiltin_xrootd=OFF -Ddavix=OFF -Dbuiltin_vdt=OFF -Dvdt=OFF -Dimt=OFF -Dbuiltin_tbb=OFF -Dbuiltin_glew=ON
+     CMAKE_ARGS -Dwebgui=ON -Dqt6web=ON -Dxrootd=OFF -Dbuiltin_xrootd=OFF -Ddavix=OFF -Dbuiltin_vdt=OFF -Dvdt=OFF -Dimt=OFF -Dbuiltin_tbb=OFF -Dclad=OFF -Dbuiltin_glew=ON
      INSTALL_COMMAND ""
   )
   set(root_dep ROOT)
