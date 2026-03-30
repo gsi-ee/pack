@@ -50,4 +50,13 @@ For the Go4 one needs Qt6 with webengine components. On the opensuse on can inst
 * https://web-docs.gsi.de/~dabc/doc/stream/hadaq_tdc_calibr.html
 
 
+## Build in nix-shell
+
+When building this package, one can use `nix-shell` which able to download ROOT and several other
+prerequicities automatically. Just start
+
+    nix-shell /path/to/pack/
+
+After just proceed with build - cmake should automatically recognize ROOT and build only Go4/DABC/Stream.
+
 
