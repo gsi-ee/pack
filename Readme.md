@@ -36,8 +36,7 @@ For the Go4 one needs Qt6 with webengine components. On the opensuse on can inst
 ## Update and rebuild
 
     cd ~/git/pack
-    git pull
-    git submodule update --recursive --remote
+    git pull  --recurse-submodules
     cd ~/build/pack
     make -j
 
