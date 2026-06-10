@@ -5,6 +5,19 @@
     cd ~/git
     git clone --recurse-submodules https://github.com/gsi-ee/pack.git
 
+### Checkout of specific tag
+
+Normally master branch is best possible code for data taking and analysis.
+But for some old data previous versions of framework can be used.
+For such usecase special tags are cretaed. These are:
+
+   * `dogma_oldtdc` - dogma with TDC v5 readout, no IQTDC
+
+To checkout such tag one call:
+
+    git checkout dogma_oldtdc --recurse-submodules
+
+
 ## Create build directory
 
     mkdir -p ~/build/pack
