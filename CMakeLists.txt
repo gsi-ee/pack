@@ -11,11 +11,11 @@ if(ROOT_FOUND)
   set(root_cmake $ENV{CMAKE_PREFIX_PATH})
   set(__root_init__ "")
 else()
-  message("Download and build ROOT from https://root.cern/download/root_v6.36.04.source.tar.gz")
+  message(STATUS "Download and build ROOT from https://root.cern/download/root_v6.40.02.source.tar.gz")
   ExternalProject_Add(
      ROOT
-     URL https://root.cern/download/root_v6.36.04.source.tar.gz
-     URL_HASH SHA256=cc6367d8f563c6d49ca34c09d0b53cb0f41a528db6f86af111fd76744cda4596
+     URL https://root.cern/download/root_v6.40.02.source.tar.gz
+     URL_HASH SHA256=f631eebee3dbea128f1415f4b784f5e83637a2b431193bce75f10385f71efc56
      DOWNLOAD_EXTRACT_TIMESTAMP false
      BINARY_DIR root
      BUILD_ALWAYS 1
