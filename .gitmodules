@@ -7,7 +7,3 @@
 [submodule "stream"]
 	path = stream
 	url = https://github.com/gsi-ee/stream.git
-[submodule "root"]
-	path = root
-	url = git@github.com:root-project/root.git
-	branch = v6-40-00-patches
